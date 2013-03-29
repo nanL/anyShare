@@ -1,0 +1,64 @@
+<?php
+// $Id$
+/**
+ * @file
+ * Add some Chinese SNS share buttons under the node post.
+ */
+
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function anyShare_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL){
+  switch($op){
+	case 'view':
+		if($a3){ break; }
+		
+		$node->content['anyShare'] = array(
+			'#value' => theme('anyShare', $node),
+			'#weight' => 9,
+		);
+	break;
+  }
+}
+
+
+/**
+ * Implementation of hook_theme().
+ */
+function anyShare_theme(){
+	return array('anyShare' => array());
+}
+
+/**
+ *
+ */
+function theme_anyShare($node){
+	drupal_add_css(drupal_get_path('module','anyShare').'/anyShare.css');
+
+	$outer = NULL;
+	$share = array();
+	$pName = check_plain($node->title);
+	$pHref = url('node/'.$node->nid, array('absolute' => TRUE));
+
+	$share['renren'] = array(t('Renren'), 'http://share.renren.com/share/buttonshare.do?link='.$pHref.'&title='.$pName);
+	$share['kaixin'] = array(t('Kaixin'), 'http://www.kaixin001.com/repaste/share.php?rurl='.$pHref.'&rtitle='.$pName);
+	$share['qqtwet'] = array(t('tWeibo'), 'http://v.t.qq.com/share/share.php?url='.$pHref.'&title='.$pName);
+	$share['sntwet'] = array(t('sWeibo'), 'http://v.t.sina.com.cn/share/share.php?url='.$pHref.'&title='.$pName);
+	$share['qqzone'] = array(t('qqZone'), 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='.$pHref);
+	$share['douban'] = array(t('Douban'), 'http://www.douban.com/recommend/?url='.$pHref.'&title='.$pName);
+	$share['bdcang'] = array(t('bdCang'), 'http://cang.baidu.com/do/add?iu='.$pHref.'&it='.$pName);
+	$share['qqfavs'] = array(t('qqMark'), 'http://shuqian.qq.com/post?uri='.$pHref.'&title='.$pName);
+
+	$outer .= '<p id="anyShare"><b>'.t('Share:').'</b>';
+
+	foreach($share as $key => $btn){
+		$outer .= '<a id="'.$key.'" href="'.$btn[1].'" target="_blank">'.$btn[0].'</a>';
+	}
+
+	$outer .= '<br clear="all" /></p>';
+	return $outer;
+}
+
+
+?>

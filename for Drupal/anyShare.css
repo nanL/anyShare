@@ -1,0 +1,19 @@
+/* $Id$ */
+
+#anyShare { font-size:12px; line-height:1.5em; font-family:"\5fae\8f6f\96c5\9ed1"; }
+#anyShare b { color:#999; font-weight:normal; font-size:13px; }
+#anyShare p { border:1px dashed #EEE; border-width:1px 0px; padding:5px; margin:0; text-indent:0; }
+#anyShare a { text-decoration:none; display:inline-block;
+	background:#FFF url(anyShare.png) no-repeat left center;
+	margin:4px; opacity:0.6; padding:0 4px 0 22px; }
+#anyShare a:hover { opacity:1.0; }
+
+a#qqtwet { background-position:0 -180px; }
+a#renren { background-position:0 -120px; }
+a#kaixin { background-position:-80px -120px; }
+a#qqzone { background-position:0 -140px; }
+a#sntwet { background-position:-80px -180px; }
+a#bdcang { background-position:-80px -100px; }
+a#shuoke { background-position:0 -200px; }
+a#qqfavs { background-position:-80px -200px; }
+a#douban { background-position:0 -220px; }

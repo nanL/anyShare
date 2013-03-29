@@ -1,0 +1,4 @@
+; $Id$
+name = "anyShare"
+description = "SNS Share Buttons for Chinese."
+core = 6.x
