@@ -1,0 +1,35 @@
+/* CSS Document for anyShare by anyLiv 0411-2011 */
+
+#anyShare { width:99%; background:#FFF; box-shadow:0 0 5px #EEE;
+	font-family: 'comic sans ms', fantasy !important; margin:20px auto;
+	border:0 !important; border-radius:9px; border-collapse:collapse;
+}
+#anyShare i { float:right; color:#EEE; font-size:10px; }
+#anyShare b { font-family:"\5fae\8f6f\96c5\9ed1"; font-size:14px; color:#999;
+	padding-left:10px; display:block; border-bottom:1px dashed #EEE;
+}
+#anyShare td { border:0 !important; padding:0 !important; vertical-align:middle; }
+#anyShare br { }
+#anyShare img { margin:10px; }
+
+#AS-TXT { border-bottom:1px dashed #EEE; line-height:25px; }
+#AS-IMG { width:99px; height:99px; }
+#AS-BTN { }
+#AS-BTN a { display:inline-block; width:32px; height:32px; overflow:hidden; margin-left:10px;
+	opacity:0.7; border-radius:5px;
+	background:#FFF url(anyShare.png) no-repeat;
+}
+#AS-BTN a:hover { opacity:1; }
+
+a#qqtwet { background-position:0 -352px; }
+a#renren { background-position:0 -416px; }
+a#kaixin { background-position:0 -448px; }
+a#qqzone { background-position:0 -384px; }
+a#sntwet { background-position:0 -320px; }
+a#bdcang { background-position:0 -288px; }
+a#shuoke { background-position:0 -200px; }
+a#qqfavs { }
+a#douban { background-position:0 -639px; }
+a#facebk { background-position:0 -224px; }
+a#twiter { background-position:0 -256px; }
+a#folow5 { background-position:0 -671px; }
