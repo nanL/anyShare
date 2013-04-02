@@ -13,7 +13,7 @@ Description: Easy sharing for China SNS.
 // for add to content ...
 function anyShare($HTM){
 
-	if(!is_singular()): return $HTM; endif;
+	if(!is_single()): return $HTM; endif;
 
 	global $post;
 	$TXT = rawurlencode($post->post_title);
