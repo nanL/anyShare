@@ -10,9 +10,7 @@
       "24": "24.png",
       "48": "48.png"
    },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKv3HD8dUfCBoZFfQgJ71R5qaUdSKg6S/eJkobvJwszzJd+HpQQnEfbjxMES0moEMbR8yDYOr+DJ8EGN0UuMp5Y2D938Rk3Ok9tWTm49/LqR3rj2n1kA+ZHDTpcq8siDsgEcccdlbuONBc/Fk/jTO9itTq+2pbSgsdr4Ne4LBm4QIDAQAB",
    "name": "anyShare",
    "permissions": [ "tabs" ],
-   "update_url": "http://clients2.google.com/service/update2/crx",
-   "version": "2.0.1"
+   "version": "2.2.0"
 }

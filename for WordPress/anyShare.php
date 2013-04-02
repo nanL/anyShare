@@ -2,48 +2,53 @@
 
 /*
 Plugin Name: anyShare
-Version:     0.5
-Plugin URI:  http://anyLiv.com/blog/1302
-Description: Sharing buttons for Chinese SNS.
-Author:      anyLiv
-Author URI:  http://anyLiv.com/
+Version:     0.9
+Author:      nan
+Author URI:  http://nan.im/
+Plugin URI:  http://nan.im/blog/1302
+Description: Easy sharing for China SNS.
 */
 
-//wp_enqueue_style('anyShare', WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)).'/anyShare.css');
 
 // for add to content ...
-function anyShare($outer){
-	if(!is_singular()){ return $outer; }
+function anyShare($HTM){
+
+	if(!is_singular()): return $HTM; endif;
 
 	global $post;
-	$share = array();
-	$pName = rawurlencode($post->post_title);
-	$pHref = rawurlencode(get_permalink($post->ID));
+	$TXT = rawurlencode($post->post_title);
+	$URL = rawurlencode(get_permalink());
 
-	$share['sntwet'] = array('新浪微博', 'http://v.t.sina.com.cn/share/share.php?url='.$pHref);
-	$share['qqtwet'] = array('腾讯微博', 'http://v.t.qq.com/share/share.php?appkey=2e295ab2ff8245229d96fa3768a9f779&url='.$pHref.'&title='.$pName);
-	$share['qqzone'] = array('腾讯空间', 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='.$pHref);
-	$share['renren'] = array('人人社区', 'http://share.renren.com/share/buttonshare.do?link='.$pHref.'&title='.$pName);
-	$share['kaixin'] = array('开心社区', 'http://www.kaixin001.com/repaste/share.php?rurl='.$pHref.'&rtitle='.$pName);
-	$share['douban'] = array('豆瓣社区', 'http://www.douban.com/recommend/?url='.$pHref);
-	$share['bdcang'] = array('百度搜藏', 'http://cang.baidu.com/do/add?iu='.$pHref.'&it='.$pName);
-	$share['folow5'] = array('Follow5', 'http://www.follow5.com/f5/discuz/sharelogin.jsp?url='.$pHref.'&title='.$pName);
-	$share['facebk'] = array('facebook', 'http://www.facebook.com/share.php?u='.$pHref);
-	$share['twiter'] = array('twitter', 'http://twitter.com/home?status='.$pName.'-'.$pHref);
+	$CSS = file_exists(get_template_directory().'/anyShare.css') ? (get_template_directory_uri().'/anyShare.css') : (WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)).'/anyShare.css');
+	wp_enqueue_style('anyShare', $CSS, NULL, '0.9');
 
-	$outer .= "\n<!-- Begin anyShare -->\n";
-	$outer .= '<link rel="stylesheet" href="'.WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)).'/anyShare.css?v=5">';
-	$outer .= '<table id="anyShare"><tr><td id="AS-TXT"><i>anyShare</i><b>分享到：</b></td><td id="AS-IMG" rowspan="2">';
-	$outer .= '<img src="http://chart.apis.google.com/chart?cht=qr&chld=|0&choe=UTF-8&chs=75x75&chl='.$pHref.'">';
-	$outer .= '</td></tr><tr><td id="AS-BTN">';
-	foreach($share as $key => $btn){
-		$outer .= '<a id="'.$key.'" title="'.$btn[0].'" href="'.$btn[1].'" target="_blank">&nbsp;</a>';
+	$API = array(
+		'QQ空间' => 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={URL}&title={TXT}&desc=&summary=&site=&pics=',
+		'新浪微博' => 'http://service.weibo.com/share/share.php?url={URL}&title={TXT}&appkey=3581453612&pic=&sudaref={URL}',
+		'腾讯微博' => 'http://share.v.t.qq.com/index.php?c=share&a=index&url={URL}&title={TXT}&appkey=2e295ab2ff8245229d96fa3768a9f779',
+		'人人网' => 'http://widget.renren.com/dialog/share?resourceUrl={URL}&srcUrl=&title={TXT}&description=',
+		'百度贴吧' => 'http://tieba.baidu.com/f/commit/share/openShareApi?url={URL}&title={TXT}&desc=&comment=',
+		'开心网' => 'http://www.kaixin001.com/rest/records.php?url={URL}&style=11&content={TXT}&stime=&sig=',
+		'百度空间' => 'http://hi.baidu.com/pub/show/share?url={URL}&title={TXT}&content=&linkid=',
+		'豆瓣' => 'http://shuo.douban.com/!service/share?href={URL}&name={TXT}&image=',
+		'搜狐微博' => 'http://t.sohu.com/third/post.jsp?url={URL}&title={TXT}&pic=',
+		'FaceBook' => 'https://www.facebook.com/sharer/sharer.php?u={URL}&t=',
+		'Twitter' => 'https://twitter.com/intent/tweet?source=webclient&text={TXT}%20{URL}',
+		'Google+' => 'https://plus.google.com/share?url={URL}',
+	);
+
+	$HTM .= '<div id="anyShare" class="clearfix">'."\n";
+	$HTM .= '<b><i>anyShare</i>分享到：</b>'."\n";
+	foreach($API as $KEY => $LNK){
+		$LNK = str_replace(array('{TXT}', '{URL}'), array($TXT, $URL), $LNK);
+		$POP = "javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=480,width=640');return false;";
+		$HTM .= '<a target="_blank" rel="nofollow" id="L'.substr(crc32($KEY), -3).'" onclick="'.$POP.'" title="'.$KEY.'" href="'.$LNK.'">'.$KEY.'</a>'."\n";
 	}
-	$outer .= '<br clear="all"></td></tr></table>';
-	$outer .= "\n<!-- anyShare Endof -->\n";
-	return $outer;
+	$HTM .= '<br clear="all"></div><!-- #anyShare -->';
+
+	return $HTM;
 }
 
 add_filter('the_content', 'anyShare');
 
-?>
+

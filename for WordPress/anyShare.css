@@ -1,35 +1,22 @@
-/* CSS Document for anyShare by anyLiv 0411-2011 */
+@charset "utf-8"; /* CSS Document for anyShare by nan.im 0330-2013 */
 
-#anyShare { width:99%; background:#FFF; box-shadow:0 0 5px #EEE;
-	font-family: 'comic sans ms', fantasy !important; margin:20px auto;
-	border:0 !important; border-radius:9px; border-collapse:collapse;
-}
-#anyShare i { float:right; color:#EEE; font-size:10px; }
-#anyShare b { font-family:"\5fae\8f6f\96c5\9ed1"; font-size:14px; color:#999;
-	padding-left:10px; display:block; border-bottom:1px dashed #EEE;
-}
-#anyShare td { border:0 !important; padding:0 !important; vertical-align:middle; }
-#anyShare br { }
-#anyShare img { margin:10px; }
+#anyShare { display: block; margin: 20px auto; }
+#anyShare:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+#anyShare b { display: block; font-weight: normal; }
+#anyShare i { float: right; font-size: 10px; opacity: 0.618; }
+#anyShare a { float: left; height: 32px; width: 32px; margin: 2px; overflow: hidden; text-indent: -9em; opacity: 0.7; }
+#anyShare a { background-image: -webkit-image-set(url(ICON.png) 1x, url(ICON-2X.png) 2x); }
+#anyShare a:hover { opacity: 1; }
+#anyShare a#L766 { background-position: 35px -3px; }
+#anyShare a#L398 { background-position: -3px -3px; }
+#anyShare a#L161 { background-position: -38px -3px; }
+#anyShare a#L301 { background-position: -73px -38px; }
+#anyShare a#L280 { background-position: -38px -73px; }
+#anyShare a#L315 { background-position: -38px -38px; }
+#anyShare a#L472 { background-position: -3px -73px; }
+#anyShare a#L937 { background-position: -108px -38px; }
+#anyShare a#L115 { background-position: -73px -3px; }
+#anyShare a#L944 { background-position: -3px -38px; }
+#anyShare a#L050 { background-position: -108px -74px; }
+#anyShare a#L918 { background-position: -73px -74px; }
 
-#AS-TXT { border-bottom:1px dashed #EEE; line-height:25px; }
-#AS-IMG { width:99px; height:99px; }
-#AS-BTN { }
-#AS-BTN a { display:inline-block; width:32px; height:32px; overflow:hidden; margin-left:10px;
-	opacity:0.7; border-radius:5px;
-	background:#FFF url(anyShare.png) no-repeat;
-}
-#AS-BTN a:hover { opacity:1; }
-
-a#qqtwet { background-position:0 -352px; }
-a#renren { background-position:0 -416px; }
-a#kaixin { background-position:0 -448px; }
-a#qqzone { background-position:0 -384px; }
-a#sntwet { background-position:0 -320px; }
-a#bdcang { background-position:0 -288px; }
-a#shuoke { background-position:0 -200px; }
-a#qqfavs { }
-a#douban { background-position:0 -639px; }
-a#facebk { background-position:0 -224px; }
-a#twiter { background-position:0 -256px; }
-a#folow5 { background-position:0 -671px; }
