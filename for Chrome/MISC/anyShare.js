@@ -1,6 +1,6 @@
 // anyShare.js for Chrome by nan.im 2013-0403.
 
-var HTM = '<b><i>anyShare</i>分享到：</b>';
+var HTM = '<b><i>anyShare</i>分享到：</b><img src="http://chart.apis.google.com/chart?cht=qr&chld=|0&choe=UTF-8&chs=86x86&chl={URL}">';
 var URL = encodeURIComponent('http://nan.im/blog/1302');
 var TXT = encodeURIComponent('anyShare - Easy SNS share tool');
 var API = {
@@ -26,7 +26,8 @@ try{chrome.tabs.getSelected(null, function(PAG){
 	//console.log(PAG);
 	URL = encodeURIComponent(PAG.url);
 	TXT = encodeURIComponent(PAG.title);
-	HTM = HTM.replace(/{URL}/g, URL).replace(/{TXT}/g, TXT);
-	//console.log(HTM);
-	document.getElementById('anyShare').innerHTML = HTM;
 })}catch(ERR){ }
+
+HTM = HTM.replace(/{URL}/g, URL).replace(/{TXT}/g, TXT);
+document.getElementById('anyShare').innerHTML = HTM;
+//console.log(HTM);

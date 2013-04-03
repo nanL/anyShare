@@ -6,6 +6,8 @@
 #anyShare i { float: right; font-size: 10px; opacity: 0.618; }
 #anyShare a { float: left; height: 32px; width: 32px; margin: 2px; overflow: hidden; text-indent: -9em; opacity: 0.7; background-image: url('ICON.png'); }
 #anyShare a { background-image: -webkit-image-set(url(ICON.png) 1x, url(ICON-2X.png) 2x); }
+#anyShare img { float: right; width: 70px; height: 70px; border: 1px solid #DDD; box-shadow: 0 0 3px #CCC; }
+#anyShare a:focus { outline: none; }
 #anyShare a:hover { opacity: 1; }
 #anyShare a#L766 { background-position: 35px -3px; }
 #anyShare a#L398 { background-position: -3px -3px; }
@@ -19,4 +21,3 @@
 #anyShare a#L944 { background-position: -3px -38px; }
 #anyShare a#L050 { background-position: -108px -74px; }
 #anyShare a#L918 { background-position: -73px -74px; }
-
