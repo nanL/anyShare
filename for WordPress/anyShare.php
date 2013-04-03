@@ -16,12 +16,10 @@ function anyShare($HTM){
 	if(!is_single()): return $HTM; endif;
 
 	global $post;
+	wp_enqueue_style('anyShare', WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)).'/anyShare.css', NULL, '0.9');
+
 	$TXT = rawurlencode($post->post_title);
 	$URL = rawurlencode(get_permalink());
-
-	$CSS = file_exists(get_template_directory().'/anyShare.css') ? (get_template_directory_uri().'/anyShare.css') : (WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)).'/anyShare.css');
-	wp_enqueue_style('anyShare', $CSS, NULL, '0.9');
-
 	$API = array(
 		'QQ空间' => 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={URL}&title={TXT}&desc=&summary=&site=&pics=',
 		'新浪微博' => 'http://service.weibo.com/share/share.php?url={URL}&title={TXT}&appkey=3581453612&pic=&sudaref={URL}',
