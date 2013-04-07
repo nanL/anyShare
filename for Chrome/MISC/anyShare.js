@@ -22,12 +22,11 @@ for(var SNS in API){
 	HTM += '<a target="_blank" id="' + SNS.substr(0,4) + '" href="' + API[SNS] + '">' + SNS.substr(4) + '</a>';
 }
 
-try{chrome.tabs.getSelected(null, function(PAG){
+try{ chrome.tabs.getSelected(null, function(PAG){
 	//console.log(PAG);
 	URL = encodeURIComponent(PAG.url);
 	TXT = encodeURIComponent(PAG.title);
-})}catch(ERR){ }
-
-HTM = HTM.replace(/{URL}/g, URL).replace(/{TXT}/g, TXT);
-document.getElementById('anyShare').innerHTML = HTM;
-//console.log(HTM);
+	HTM = HTM.replace(/{URL}/g, URL).replace(/{TXT}/g, TXT);
+	document.getElementById('anyShare').innerHTML = HTM;
+	//console.log(HTM);
+})}catch(ERR){ console.log(ERR); }
