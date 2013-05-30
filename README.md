@@ -6,7 +6,7 @@
 
 * for Chrome:  [http://goo.gl/OFs9](https://chrome.google.com/webstore/detail/anyshare/kblmbefkfbimlifaddimbjgejgmcdakc) (Chrome Web Store)
 
-* for WordPress:  [http://goo.gl/XaiT](http://wordpress.org/extend/plugins/anyshare/) (WordPress Extend)
+* for WordPress:  [http://goo.gl/XaiT](http://wordpress.org/extend/plugins/anyshare/) (WordPress.com)
 
 * for Drupal: 90%
 
