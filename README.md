@@ -4,9 +4,9 @@
 
 ##下载安装##
 
-* for Chrome: 99% [http://goo.gl/OFs9](https://chrome.google.com/webstore/detail/anyshare/kblmbefkfbimlifaddimbjgejgmcdakc) (Chrome Web Store)
+* for Chrome:  [http://goo.gl/OFs9](https://chrome.google.com/webstore/detail/anyshare/kblmbefkfbimlifaddimbjgejgmcdakc) (Chrome Web Store)
 
-* for WordPress: 99%   [http://goo.gl/XaiT](http://wordpress.org/extend/plugins/anyshare/) (WordPress Extend)
+* for WordPress:  [http://goo.gl/XaiT](http://wordpress.org/extend/plugins/anyshare/) (WordPress Extend)
 
 * for Drupal: 90%
 
