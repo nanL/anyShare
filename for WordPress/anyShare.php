@@ -38,10 +38,9 @@ function anyShare($HTM){
 	$HTM .= '<div id="anyShare" class="clearfix">'."\n";
 	$HTM .= '<b><i>anyShare</i>分享到：</b>'."\n";
 	foreach($API as $KEY => $LNK){
-        $TXT  = substr($KEY, 4);
 		$LNK  = str_replace(array('{TXT}', '{URL}'), array($TXT, $URL), $LNK);
 		$POP  = "javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=480,width=640');return false;";
-		$HTM .= '<a target="_blank" rel="nofollow" id="'.substr($KEY, 0, 4).'" onclick="'.$POP.'" title="'.$TXT.'" href="'.$LNK.'">'.$TXT.'</a>'."\n";
+		$HTM .= '<a target="_blank" rel="nofollow" id="'.substr($KEY, 0, 4).'" onclick="'.$POP.'" title="'.$TXT.'" href="'.$LNK.'"></a>'."\n";
 	}
 	$HTM .= '<br clear="all"></div><!-- #anyShare -->';
 
