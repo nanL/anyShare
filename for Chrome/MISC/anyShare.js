@@ -22,6 +22,8 @@ for(var SNS in API){
 	HTM += '<a target="_blank" id="' + SNS.substr(0,4) + '" href="' + API[SNS] + '">' + SNS.substr(4) + '</a>';
 }
 
+if(typeof(chrome.tabs) === 'object'){}
+
 try{ chrome.tabs.getSelected(null, function(PAG){
 	//console.log(PAG);
 	URL = encodeURIComponent(PAG.url);
